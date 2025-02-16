@@ -1,19 +1,19 @@
 function init_walk_to_idle() {
     var struct_map = {};
-    
+
     var sprite_pairs = [
         [spr_player_walk_up, spr_player_idle_up],
         [spr_player_walk_down, spr_player_idle_down],
         [spr_player_walk_right, spr_player_idle_right],
         [spr_player_walk_left, spr_player_idle_left]
     ];
-    
+
     for (var i = 0; i < array_length(sprite_pairs); i++) {
         var walk_sprite = sprite_pairs[i][0];
         var idle_sprite = sprite_pairs[i][1];
         variable_struct_set(struct_map, walk_sprite, idle_sprite);
     }
-    
+
     return struct_map;
 };
 
@@ -36,12 +36,24 @@ xp_require = 100;
 function add_xp(_xp_to_add) {
     xp += _xp_to_add;
     if(xp < xp_require) return;
-    
+
     level++;
     xp -= xp_require;
     xp_require *= 1.4;
-    
+
     hp_total += 5;
     hp = hp_total;
     damage += 0.8;
+
+    level_up_msg = $"You leveled up! Your new stats are:"
+        + $"\nLevel: {level}"
+        + $"\nHP: {hp_total}"
+        + $"\nDamage: {damage}";
+
+    create_dialog([
+        {
+            "name": "Congrats",
+            "msg": level_up_msg
+        }
+    ])
 }
