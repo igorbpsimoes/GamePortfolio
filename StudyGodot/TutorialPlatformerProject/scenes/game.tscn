@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://ckfakaag8tdre"]
+[gd_scene load_steps=9 format=4 uid="uid://ckfakaag8tdre"]
 
 [ext_resource type="PackedScene" uid="uid://cyye22px4lmvg" path="res://scenes/player.tscn" id="1_y41rg"]
 [ext_resource type="Texture2D" uid="uid://o7tqhqswjwkj" path="res://assets/sprites/world_tileset.png" id="2_xuobp"]
+[ext_resource type="PackedScene" uid="uid://dlfvpkbuan8ws" path="res://scenes/platform.tscn" id="3_7itvv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jhcug"]
 texture = ExtResource("2_xuobp")
@@ -174,9 +175,47 @@ texture = ExtResource("2_xuobp")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jhcug")
 
+[sub_resource type="Animation" id="Animation_kgj63"]
+resource_name = "move_sideways"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(161, -75), Vector2(255, -75)]
+}
+
+[sub_resource type="Animation" id="Animation_j2ife"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(161, -75)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bcmvc"]
+_data = {
+"RESET": SubResource("Animation_j2ife"),
+"move_sideways": SubResource("Animation_kgj63")
+}
+
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_y41rg")]
+z_index = 5
 position = Vector2(0, -13)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -186,5 +225,17 @@ position_smoothing_enabled = true
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAJAAAAAAADAAAAAAAKAAAAAAAEAAAAAAALAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAACAP3/AAAAAAAAAAADAPz/AAAAAAAAAAAEAPv/AAAAAAAAAAADAP3/AAAAAAEAAAAEAP3/AAAAAAEAAAAEAPz/AAAAAAEAAAAFAPv/AAAJAAAAAAAGAPv/AAAKAAAAAAAHAPv/AAALAAAAAAAIAPv/AAAAAAAAAAAIAPz/AAAAAAEAAAAIAP3/AAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAJAAAAAAADAAAAAAAKAAAAAAAEAAAAAAALAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAACAP3/AAAAAAAAAAADAPz/AAAAAAAAAAAEAPv/AAAAAAAAAAADAP3/AAAAAAEAAAAEAP3/AAAAAAEAAAAEAPz/AAAAAAEAAAAFAPv/AAAJAAAAAAAGAPv/AAAKAAAAAAAHAPv/AAALAAAAAAAIAPv/AAAAAAAAAAAIAPz/AAAAAAEAAAAIAP3/AAAAAAEAAAARAPv/AAAEAAAAAAASAPv/AAAEAAAAAAATAPv/AAAEAAAAAAAUAPv/AAAEAAAAAAATAPz/AAAEAAEAAAAUAPz/AAAEAAEAAAAUAP3/AAAEAAEAAAAVAP3/AAAEAAEAAAAVAP7/AAAEAAEAAAAWAP7/AAAEAAEAAAAVAPz/AAAFAAAAAAAWAP3/AAAEAAAAAAAUAPj/AAAFAAMAAAAUAPn/AAAFAAQAAAAUAPr/AAAFAAUAAAATAPr/AAAIAAYAAAAWAPz/AAAFAAcAAAAXAP3/AAAEAAAAAAAYAP3/AAAEAAAAAAAZAP3/AAAEAAAAAAAXAP7/AAAEAAEAAAAYAP7/AAAEAAEAAAAZAP7/AAAEAAEAAAA=")
 tile_set = SubResource("TileSet_oar25")
+
+[node name="Platform" parent="." instance=ExtResource("3_7itvv")]
+position = Vector2(0, -36)
+
+[node name="Platform2" parent="." instance=ExtResource("3_7itvv")]
+position = Vector2(161, -75)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2"]
+libraries = {
+"": SubResource("AnimationLibrary_bcmvc")
+}
+autoplay = "move_sideways"
