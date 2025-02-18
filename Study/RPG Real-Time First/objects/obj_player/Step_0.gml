@@ -1,3 +1,5 @@
+if(instance_exists(obj_dialog)) exit;
+
 var _move_left = keyboard_check(ord("A"));
 var _move_right = keyboard_check(ord("D"));
 
@@ -15,7 +17,7 @@ if(moving) {
     else if(_move_ver < 0) sprite_index = spr_player_walk_up;
     else if(_move_hor > 0) sprite_index = spr_player_walk_right;
     else if(_move_hor < 0) sprite_index = spr_player_walk_left;
-        
+
     facing = point_direction(0, 0, _move_hor, _move_ver);
 } else if(variable_struct_exists(walk_to_idle_sprite, sprite_index)) {
     sprite_index = variable_struct_get(walk_to_idle_sprite, sprite_index)
@@ -28,4 +30,3 @@ if(attacking) {
     _inst.image_angle = facing;
     _inst.damage *= damage;
 }
-
