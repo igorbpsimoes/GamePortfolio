@@ -1,8 +1,10 @@
 # Site Settings
-title: My Game Portfolio
+portfolio_title: My Game Portfolio
+name_title: Igor Simões
 email: igorsimoes11.06@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   The beginning of an awesome portfolio
+skills: "Intermediate Full-Stack Web Developer - Beginner Game Developer"
 
 domain: igorbpsimoes.github.io
 url: https://igorbpsimoes.github.io
