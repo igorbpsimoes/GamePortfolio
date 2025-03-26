@@ -15,10 +15,10 @@ google_verify: QvrvsPFwKPaouhx5H1eOy8Tc3DXsqeGYHYEx85RDkys
 
 # Color settings (hex-codes without the leading hash-tag)
 color:
-  primary: 18bc9c #80B3FF
-  primary-rgb: "24,288,156" #"128,179,255"
-  secondary: 2c3e50 #FD6E8A
-  secondary-dark: 233140 #A2122F
+  primary: BDBE8E
+  primary-rgb: "189,190,142"
+  secondary: 30413D
+  secondary-dark: 1A2325
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
