@@ -36,3 +36,11 @@ defaults:
       type: "posts"
     values:
       permalink: ""
+
+# Footer content
+footer:
+  social: Around the Web
+  credits: Credits
+
+# Credits content
+credits: "This website was built with <a href='https://github.com/jeromelachaud/freelancer-theme/tree/master'>Jekyll's Freelancer theme</a>, is hosted on GitHub Pages."
