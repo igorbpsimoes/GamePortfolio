@@ -13,3 +13,32 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* Make GIFs expand to fill their container */
+.gif-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.gif-container img.full-width {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* For gifs that should maintain aspect ratio but still fill width */
+.modal-body .img-responsive.full-width {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* GitHub link styling */
+.list-inline a {
+  color: #18bc9c;
+  transition: color 0.3s ease;
+}
+
+.list-inline a:hover {
+  color: #128f76;
+  text-decoration: none;
+}
