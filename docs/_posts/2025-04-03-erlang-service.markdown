@@ -1,7 +1,7 @@
 ---
 layout: default
 modal-id: 3
-date: 2025-04-07
+date: 2025-04-03
 title: Erlang Service
 img: erlang-service.png
 gif: erlang-service.png
