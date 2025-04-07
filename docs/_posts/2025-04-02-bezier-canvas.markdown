@@ -11,7 +11,7 @@ github-link: https://github.com/igorbpsimoes/Bezier-Canvas
 ---
 
 <div style="text-align: left;">
-<p>Individual mini-project of the Graphic Processing (IF680).<p>
+<p>Individual mini-project of the Graphics Processing (IF680) course  from Centre of Informatics (Cin) of UFPE.<p>
 <p>
 The project's objective was to create a Canvas able to create Bezier Curves,
 through De Casteljau's algorithm, along with other utility functionalities.

@@ -11,7 +11,7 @@ github-link: https://github.com/igorbpsimoes/Camera-Rendering
 ---
 
 <div style="text-align: left;">
-<p>First project of the Graphic Processing (IF680) course done in a group.<p>
+<p>First group project of the Graphics Processing (IF680) course from Centre of Informatics (Cin) of UFPE.<p>
 <p>The main concepts studied in this project were:</p>
 
 <lu style="font-size: 20px;">
